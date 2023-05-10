@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD' crossorigin='anonymous'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Cabin+Sketch&family=Cinzel&family=Cinzel+Decorative&family=Montserrat+Subrayada&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+  body.debug .container,
+  body.debug .container-fluid {
+    outline: 2px double blue;
+    outline-offset: -2px;
+  }
+
+  body.debug .row {
+    outline: 2px dashed red;
+    outline-offset: -2px;
+  }
+
+  body.debug [class*="col-"] {
+    outline: 2px dotted forestgreen;
+    outline-offset: -3px;
+  }
+</style>
+
+
+<body class="debg">
+
+    <header>
+    </header>
+
+    <main class="container-fluid hero-image image-fluid">
+        <div class="row text-center display justify-content-center">
+            <h1 class=" col-6 spaceFont text-warning Fs-1">🌖 MOON 🌗 MINER 🌘</h1>
+        </div>
+<!-- this needs to keep a constant gold count with the multipliers when bought -->
+
+        <div class="row">
+
+            <div class=" d-flex flex-row justify-content-center">
+
+                <img onclick="mineCrystals()" src="giphy.gif" alt="">
+
+</div>
+        </div>
+        
+        <div class="container">
+             <div class="row">
+                <div class="col justify-content-center d-flex">
+
+    <div class="box-shade1 bg-spacedog fs-1 text-center text-warning p-2 m-3" > 
+       
+        <p class="">GOLD:  <span id="crystalCount"></span></p>
+ 
+ </div>
+</div>
+
+<div class="row">
+
+    <div class="col d-flex flex-row text-center text-warning justify-content-center">
+    
+       
+
+        <div class="fs-3 box-shade1 bg-spacedog m-1">
+    
+            <p class="p-3"><span id="noGold">MOON MINER </span></p>
+
+         </div>
+
+<div class="fs-3 box-shade1 bg-spacedog m-1">
+
+    <p class="p-3">GOLD PER CLICK:<span id="updatePrice">0 </span></p>
+
+</div>
+
+    </div>
+   </div>
+  </div>
+<div class="row">
+  
+<div class="col d-flex flex-row justify-content-center">
+   
+    
+        <div class="fs-3 box-shade1 text-warning bg-spacedog mx-2">
+    
+            <p class="p-3" >Cart <span id="updatePurchase"></span></p>
+            
+        </div>
+      
+
+        <div class="box-shade1 bg-spacedog mx-2">
+            <h1 class="fs-3 text-warning p-3 spaceFont ">MULTIPLIER</h1>
+        <div class="">
+             <p class="text-warning text-center fs-2 p-2 spaceFont"><span id="multiplierScreen"></span>  </p>
+            </div>
+        </div>
+    </div>
+    </div>   
+<div class="row">
+    <div class="col d-flex flex-row justify-content-center">
+        <div class="d-flex flex-row m-1 ">
+<button onclick="buyPickaxe()" class="box-shade1 p-2 bg-spacedog text-warning spaceFont">
+<h1>pickaxe⛏ <span id="axeCost">10</span></h1>
+</button>
+<p class="fs-1 text-warning m-5"> X <span id="axeQuantity">0</span> </p>
+
+    </div>
+      
+ <div class="d-flex flex-row ">
+        <button onclick="buySword()" class="btn-light p-2 text-warning box-shade1 bg-spacedog spaceFont">
+<h1>sword⚔️ <span id="swordCost">200</span></h1>
+</button>
+<p class="fs-1 text-warning m-5"> X <span id="swordQuantity">0</span> </p>
+</div>
+</div>
+    </div>
+    
+    <div class="row">
+    <div class="col d-flex flex-row justify-content-center">
+    <div class="d-flex flex-row m-2 p-2">
+        <button onclick="buyGun()" class="btn-light text-warning box-shade1 bg-spacedog spaceFont">
+<h1>gun🔫 <span id="gunCost">300</span></h1>
+</button>
+<p class="fs-1 text-warning m-4"> X <span id="gunQuantity">0 </span> </p>
+</div>
+
+
+       <div class="d-flex flex-row m-1 p-2">
+        <button onclick="buyLaser()" class="btn-light text-warning box-shade1 bg-spacedog spaceFont">
+<h1>laser🔬<span id="laserCost">400</span></h1>
+</button>
+<p class="fs-1 text-warning m-4"> X <span class="box-shade1" id="laserQuantity">0 </span> </p>       
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-6 d-flex justify-content-center align-items-center">
+<div class="">
+<button onclick="autoUpgrades()" class="btn-light fs-3 text-warning box-shade1 bg-spacedog spaceFont">
+    <p id="autoButton">💥ROVER💥 <span id="autoCount"></span>600</p>
+</button>
+</div>
+</div>
+<div class="col-6">
+<div class="box-shade1 text-center text-warning fs-3 bg-spacedog">
+<h1>AUTOMATIC UPGRADE</h1>
+<p> <span id="autoUpgrade"></span></p>
+</div>
+</div>
+</div>
+</div>
+    </div>
+
+    <div class="container">
+<div class="row">
+    <div class="col">
+<div class="cart bg-light text-dark">
+    <span id="upgradeCart">
+
+    </span>
+</div>
+    </div>
+</div>
+    </div>
+        
+    </main>
+
+    <footer>
+        </footer>
+
+
+        <script src="app.js"></script>
+</body>
+</html>
